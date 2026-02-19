@@ -19,19 +19,13 @@ You will also review:
 
 ## Part 0: Setup
 
-Open the lab files in VSCode by:
-
-1. Press the green "code" button on github, then "download as zip".
-
-1. Extract the zip file to your computer.
-
-1. In VSCode, use the "file -> open folder" menu to load the repo.
+Clone this repo and then cd into the clone.
 
 ## Part 1: Background
 
 **Working with zip files in python**
 
-This lab contains several interesting zip files.
+This repo contains several interesting zip files.
 The first is an encrypted zip file called `guido_secrets.zip`.
 In this first part of the lab,
 you'll learn how to open up and decrypt this file in python.
@@ -99,9 +93,6 @@ For example:
    But if you unzip it, it takes up 4.5PB of disk space on your computer!
    PB stands for petabytes, and 1 petabyte is 1000 terabytes (or 1,000,000 gigabytes).
 
-   Virus scanning programs commonly open the contents of zip files and scan the contents for viruses.
-   Zip bombs like this will cause these scanners to fill up the contents of the hard drive, crashing the computer.
-
    <img src=img/zipbomb.jpg width=400px>
 
    > **Note:**
@@ -133,7 +124,7 @@ I promise that the files I'm giving you aren't zip bombs :)
 
 **The Scenario:**
 
-For this lab, you're going to pretend that it's the year 2015 and you are an analyst at [GRU](https://en.wikipedia.org/wiki/GRU),
+For this lab, you're going to pretend that it's the year 2015 and you are an analyst at the [GRU](https://en.wikipedia.org/wiki/GRU),
 the infamous Russian spy agency.
 One of your agents has risked their life to bring you the file `whitehouse_secrets.zip`.
 This file was stolen from an IT worker at the white house,
@@ -146,7 +137,6 @@ Fortunately, you have some leads that will help you guess the password:
 
 1. In July 2015, the website [Ashley-Madison (ashleymadison.com) had a major data leak](https://en.wikipedia.org/wiki/Ashley_Madison_data_breach).
    Ashley-Madison is a dating website for married people to find extra-marital lovers without their spouse's knowledge.
-   Here is a screenshot from their webpage:
 
    <img src=img/ashley-madison2.jpg width=500px />
 
@@ -161,7 +151,7 @@ Fortunately, you have some leads that will help you guess the password:
    This IT worker, like [most people](https://www.infosecurity-magazine.com/blogs/your-employees-reusing-passwords/),
    reuses the same password for everything they do.
    So one of the leaked passwords from Ashley-Madison will decrypt the `whitehouse_secrets.zip` file.
-   We just have to figure out which one.
+   You just have to figure out which one.
 
 **Historical Aside:**
 
@@ -176,8 +166,6 @@ adultery is a [felony offense](https://militarybenefits.info/ucmj-adultery/) for
 
 **Your Tasks:**
 
-1. Download `whitehouse_secrets.zip`.
-
 1. [The SecLists github repo](https://github.com/danielmiessler/SecLists/) contains lots of security related datasets,
    including the passwords of the Ashley-Madison leak.
     These passwords are located at `Passwords/Leaked-Databases/Ashley-Madison.txt`.
@@ -186,7 +174,7 @@ adultery is a [felony offense](https://militarybenefits.info/ucmj-adultery/) for
 1. Create a program `password_cracker.py` that finds the password of the zip file.
    Your program should:
 
-    1. Open then file `Ashley-Madison.txt`,
+    1. Open then file `Ashley-Madison.txt`
        and create a list called `passwords` that contains all of the passwords.
 
     1. For each password in `passwords`,
@@ -208,6 +196,10 @@ adultery is a [felony offense](https://militarybenefits.info/ucmj-adultery/) for
        Once the file is successfully decrypted,
        you should have a new file `whitehouse_secrets/secrets.txt` that contains President Obama's secrets.
 
+    1. Commit your `password_cracker.py` and `whitehouse_secrets/secrets.txt` files to the git repo and push them to github.
+
+        Submit the link to your repo to canvas.
+
 1. (Optional, but recommended)
    Change your passwords so that you're not using the same password for everything.
    I personally like to memorize all my passwords,
@@ -219,13 +211,3 @@ adultery is a [felony offense](https://militarybenefits.info/ucmj-adultery/) for
    (Your python program is probably capable of guessing between 10,000-100,000 passwords per second, which is a lot slower than john the ripper.)
    So using strong passwords that are hard to guess is important.
    The [XKCD comic has a great technique](https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength) for generating easy-to-remember passwords that not even the NSA can crack.
-
-**Submission:**
-
-Upload to sakai:
-1. your `password_cracker.py` file
-1. the contents of `whitehouse_secrets/secrets.txt`
-<!--
-1. the password to `whitehouse_secrets.zip`
--->
-
